@@ -52,10 +52,10 @@ public final class TimeControl extends JavaPlugin implements Listener {
         }
 
         getServer().getScheduler().cancelTasks(this);
-        HandlerList.unregisterAll((JavaPlugin)this);
+        HandlerList.unregisterAll((JavaPlugin) this);
     }
 
-    @EventHandler (priority = EventPriority.MONITOR, ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onPlayerLeavesBed(PlayerBedLeaveEvent event) {
         World world = event.getPlayer().getWorld();
         ConfigurationSection worldConfiguration = getConfig().getConfigurationSection("worlds." + world.getName());
@@ -75,12 +75,12 @@ public final class TimeControl extends JavaPlugin implements Listener {
         }
     }
 
-    @EventHandler (priority = EventPriority.MONITOR, ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onWorldLoadEvent(WorldLoadEvent event) {
         enableTimeControlForWorld(event.getWorld());
     }
 
-    @EventHandler (priority = EventPriority.MONITOR, ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onWorldUnloadEvent(WorldUnloadEvent event) {
         disableTimeControlForWorld(event.getWorld());
     }

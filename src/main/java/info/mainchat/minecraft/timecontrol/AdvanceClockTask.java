@@ -8,6 +8,7 @@
 
 package info.mainchat.minecraft.timecontrol;
 
+import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -23,7 +24,7 @@ public final class AdvanceClockTask extends BukkitRunnable {
 
     @Override
     public void run() {
-        World world = org.bukkit.Bukkit.getServer().getWorld(worldUUID);
+        World world = Bukkit.getServer().getWorld(worldUUID);
         world.setTime((1 + world.getTime()) % 24000);
     }
 }
